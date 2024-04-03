@@ -24,6 +24,7 @@ export const Input = ({updateData, transaction}) => {
       amount:'',
       category: '',
       date: '',
+      description:'',
     })
     
   }
@@ -37,6 +38,8 @@ export const Input = ({updateData, transaction}) => {
     let { name, value } = e.target;
     if([name]=='category')
         value=value.slice(0,10); //limit category.len <=10
+    if([name]=='description')
+      value=value.slice(0,50);
 
     setInputData({ ...inputData, [name]: value });
     console.log(inputData);
@@ -49,16 +52,17 @@ export const Input = ({updateData, transaction}) => {
       amount:'',
       category: '',
       date: '',
+      description:'',
     })
     console.log('from Input',inputData);
   }
   return (
-    <div className="bg-blue-500 text-gray-50 font-normal  text-xl  border-4 border-blue-500 rounded-3xl  mx-auto sm:min-w-[400px] max-w-[400px] shadow-gray-950 shadow-2xl">
+    <div className="bg-blue-500 text-gray-50 font-normal  text-xl  border-4 border-blue-500 rounded-3xl  mx-auto sm:min-w-[400px] max-w-[400px] shadow-gray-950 shadow-2xl  max-h-1/2">
       <h1 className="flex items-center justify-center text-4xl md:text-5xl font-bold my-6 md:mb-16 text-center px-7">
         Track Expense
       </h1>
-      <form action="" onSubmit={onSubmit} className="mb-5 px-2 ">
-        <div className="grid gap-6 mb-6 grid-cols-1 sm:grid-cols-1  h-1/2  w-full px-6">
+      <form action="" onSubmit={onSubmit} className="mb-5 px-2  ">
+        <div className="grid gap-6 mb-6 grid-cols-1  h-1/2  w-full px-6">
           <div>
             <label htmlFor="type" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >
               Transaction
@@ -86,6 +90,20 @@ export const Input = ({updateData, transaction}) => {
               id="category"
               name="category"
               value={inputData.category}
+              onChange={handleChange}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+             Description
+            </label>
+            <input
+              type="text"
+              id="destails"
+              name="description"
+              value={inputData?.description}
               onChange={handleChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required

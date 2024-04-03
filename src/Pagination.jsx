@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Pagination = ({page, updatePage, pageSize, totTransactions}) => {
-    const startIdx=page*pageSize+1;
+    const startIdx=Math.min(totTransactions,page*pageSize+1);
     const endIdx=Math.min(totTransactions,startIdx+pageSize-1);
   return (
     <div className="flex flex-col items-center my-4">

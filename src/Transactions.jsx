@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Transaction } from './Transaction'
+// import { Transaction } from './Transaction'
 import { Pagination } from './Pagination';
+import AccordionDemo from './AccordionDemo';
+
 
 export const Transactions = ({data, deleteData, editData}) => {
   const pageSize=10; 
@@ -14,10 +16,9 @@ export const Transactions = ({data, deleteData, editData}) => {
   console.log('TransactionList Reloaded')
 
   return (
-    <div>
-      {/* <div className="text-center text-3xl mb-5 font-bold">Transactions</div> */}
+    <div className="">
       <div>
-        { paginatedData.map((transData,index) => <Transaction key={index} transData={transData} index={index} deleteData={deleteData} editData={editData} ></Transaction>)}
+        { paginatedData.map((transData,index) => <AccordionDemo key={index} transData={transData} index={index} deleteData={deleteData} editData={editData} />)}
       </div>
       <Pagination page={page} updatePage={updatePage} pageSize={pageSize} totTransactions={data.length}/>
     </div>

@@ -11,14 +11,15 @@ export const Dashboard = () => {
     amount:'',
     category: '',
     date: '',
+    description:'',
   }
   const [data, setData]=useState(localData); 
   const [transaction, setTransaction]=useState({}); 
 
-
   //using callback update state
   const updateData= (newData)=>{
     newData['category']= newData.category[0].toUpperCase() + newData.category.slice(1).toLowerCase(); //capitilize 
+    newData['description']= newData.description.split('.').map(sentence=> sentence.length!=0?sentence.trim()[0].toUpperCase()+sentence.trim().slice(1).toLowerCase():"").join('. ') //capitilize each sentence
     if(newData._id==undefined)
         newData['_id']=uuidv4(); //add new-ID
       
@@ -59,10 +60,10 @@ export const Dashboard = () => {
   
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 m-5">
-      <div className="my-auto mx-auto lg:col-span-2  ">
+      <div className=" md:mx-auto lg:col-span-2  ">
           <Input   updateData={updateData} transaction={transaction}   />
       </div>
-      <div className='lg:col-span-3 lg:px-8 '>
+      <div className='lg:col-span-3 lg:px-8 lg:ml-10 '>
         <Details data={data} deleteData={deleteData} editData={editData}></Details>
       </div>
     </div>
