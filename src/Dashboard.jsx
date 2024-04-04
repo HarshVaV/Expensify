@@ -41,6 +41,10 @@ export const Dashboard = () => {
     const toEdit=data.find(item=> item._id==id)
     setTransaction(toEdit)
     // console.log('toedit', transaction)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Smooth scrolling animation
+    });
   }
 
 

@@ -8,15 +8,17 @@ import { TransactionBtns } from './TransactionBtns';
 
 
 
+
+
 export default function AccordionDemo({transData,index,deleteData,editData}) {
 
-  const bgColor= index%2==1?'rgb(219 234 254)':'white';
+  const bgColor= index%2==1?'white':'white';
   const amountColorClass = transData.type === 'debit' ? 'text-red-500' : 'text-green-500';
 
   return (
     <div className='mb-2'>
       <Accordion sx={{
-          backgroundColor: `${bgColor}`, 
+          backgroundColor: `rgb(36,35,41)`, 
           border:`${bgColor}`,
           borderRadius: '2rem 2rem 2rem 2rem !important',
           // boxShadow: ' 1px 1px 2px 1px rgba(0,0,0,0.2)',
@@ -25,7 +27,7 @@ export default function AccordionDemo({transData,index,deleteData,editData}) {
       >
         <AccordionSummary
           expandIcon={
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 stroke-slate-400">
               <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
           }
@@ -51,10 +53,10 @@ export default function AccordionDemo({transData,index,deleteData,editData}) {
           paddingLeft:'2rem'
           // borderRadius:'0.75rem'
         }}>
-         <div className='font-bold sm:hidden'>
+         <div className='font-bold sm:hidden text-gray-400'>
             Category: <span className={`${amountColorClass}`}>{transData.category}<br/></span> 
          </div>
-         <div className='font-bold'>
+         <div className='font-bold text-gray-400'>
          Summary: <span className="font-normal">{transData?.description}</span> 
          </div>
         </AccordionDetails>

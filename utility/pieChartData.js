@@ -17,7 +17,7 @@ function getData(transactions, transType){
     //get top Transaction
         transArray.sort((a,b)=>b.amount-a.amount);
         
-        let maxUniqueCatergory=5; //consider top-5
+        let maxUniqueCatergory=3; //consider top-3
         if(transArray.length <=parseInt(maxUniqueCatergory)+1)
             return transArray;
 

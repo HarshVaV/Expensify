@@ -57,14 +57,14 @@ export const Input = ({updateData, transaction}) => {
     console.log('from Input',inputData);
   }
   return (
-    <div className="bg-blue-500 text-gray-50 font-normal  text-xl  border-4 border-blue-500 rounded-3xl  mx-auto sm:min-w-[400px] max-w-[400px] shadow-gray-950 shadow-2xl  max-h-1/2">
+    <div className="bg-[rgb(36,35,41)] text-gray-50 font-normal  text-xl  border-4 border-[rgb(36,35,41)] rounded-3xl  mx-auto sm:min-w-[400px] max-w-[400px] shadow-gray-600 shadow-lg  max-h-1/2">
       <h1 className="flex items-center justify-center text-4xl md:text-5xl font-bold my-6 md:mb-16 text-center px-7">
         Track Expense
       </h1>
       <form action="" onSubmit={onSubmit} className="mb-5 px-2  ">
         <div className="grid gap-6 mb-6 grid-cols-1  h-1/2  w-full px-6">
           <div>
-            <label htmlFor="type" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >
+            <label htmlFor="type" className="block mb-2 text-base font-bold text-gray-100 dark:text-white" >
               Transaction
             </label>
             <select
@@ -82,7 +82,7 @@ export const Input = ({updateData, transaction}) => {
           </div>
 
           <div>
-            <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="category" className="block mb-2 text-base font-bold text-gray-100 dark:text-white">
               Category
             </label>
             <input
@@ -96,7 +96,7 @@ export const Input = ({updateData, transaction}) => {
             />
           </div>
           <div>
-            <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="description" className="block mb-2 text-base font-bold text-gray-100 dark:text-white">
              Description
             </label>
             <input
@@ -110,7 +110,7 @@ export const Input = ({updateData, transaction}) => {
             />
           </div>
           <div>
-            <label htmlFor="amount" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="amount" className="block mb-2 text-base font-bold text-gray-100 dark:text-white">
               Amount
             </label>
             <input
@@ -125,7 +125,7 @@ export const Input = ({updateData, transaction}) => {
           </div>
 
           <div>
-            <label htmlFor="date" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="date" className="block mb-2 text-base font-bold text-gray-100 dark:text-white">
               Date
             </label>
             <input
@@ -139,10 +139,10 @@ export const Input = ({updateData, transaction}) => {
               />
           </div>
         </div>
-        <button type="submit" className="ms-6 bg-yellow-400 px-2 py-1 border-yellow-400 rounded-xl text-gray-900 font-bold text-sm">
+        <button type="submit" className="ms-6 bg-orange-400 px-2 py-1 border-blue-500 rounded-xl text-gray-900 font-bold text-base">
         Submit
         </button>
-        <button type="button" onClick={handleClear} className="ms-1 px-2 py-1 text-gray-100 font-bold text-sm">
+        <button type="button" onClick={handleClear} className="ms-1 px-2 py-1 text-gray-100 font-bold text-base">
           Clear
         </button>
       </form>

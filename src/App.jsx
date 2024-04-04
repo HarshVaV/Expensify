@@ -6,14 +6,20 @@ import { Dashboard } from "./Dashboard"
 
 
 
+
 function App() {
 
   return (
-    <div className="grid grid-rows-[auto,1fr] h-screen">
-      <div className="bg-gray-100 flex items-center justify-center lg:h-5/10">
-        <h1 className="text-5xl font-normal text-gray-800">Hello, Tailwind CSS!</h1>
+    // wallpaperColor: bg-[rgb(23,23,25)]
+    // stageColor: [rgb(36,35,41)]
+    <div className="grid grid-rows-[auto,1fr] h-full bg-[rgb(23,23,25)]">
+      <div className=" bg-[rgb(23,23,25)]/30 backdrop-blur-2xl  flex flex-col justify-start lg:h-5/10 p-5 mb-5 sticky top-0 z-50 shadow-lg shadow-[rgb(36,35,41)] ps-5"  >
+          <img src="../public/Logo.png" alt="Logo"  className='  w-40'/>
+          <span className='text-white'> Powered by speachly</span>
       </div>
-      <Dashboard  className=" bg-slate-500"/>
+      <div>
+        <Dashboard  className=" bg-slate-500"/>
+      </div>
     
     </div>
   );
