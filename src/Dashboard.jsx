@@ -5,7 +5,11 @@ import { Details } from './Details';
 
 export const Dashboard = () => {
   console.log('Dashboard Reloaded')
-  const localData=JSON.parse(localStorage.getItem('transactions'));
+  let localData=localStorage.getItem('transactions');
+  console.log('localData is',localData)
+  localData=localData===null?[]:JSON.parse(localData)
+  console.log('Parsed-localData is',localData)
+
   const emptyTransaction={
     type: '',
     amount:'',
@@ -19,11 +23,13 @@ export const Dashboard = () => {
   //using callback update state
   const updateData= (newData)=>{
     newData['category']= newData.category[0].toUpperCase() + newData.category.slice(1).toLowerCase(); //capitilize 
+
     newData['description']= newData.description.split('.').map(sentence=> sentence.length!=0?sentence.trim()[0].toUpperCase()+sentence.trim().slice(1).toLowerCase():"").join('. ') //capitilize each sentence
+
     if(newData._id==undefined)
         newData['_id']=uuidv4(); //add new-ID
       
-    const filteredData=data.filter(item=>item._id!=newData._id); //delete oldVersion(newData)
+    let filteredData=data.filter(item=>item._id!=newData._id); //delete oldVersion(newData)
 
     setData(dateSortedDATA([...filteredData, newData]));
     setTransaction(emptyTransaction)
@@ -38,8 +44,9 @@ export const Dashboard = () => {
 
   //edit transationData
   const editData=(id)=>{
+    setTransaction(()=>{}) //clear form
     const toEdit=data.find(item=> item._id==id)
-    setTransaction(toEdit)
+    setTransaction(()=>({...toEdit})) //insert toEdit-data
     // console.log('toedit', transaction)
     window.scrollTo({
       top: 0,
@@ -53,7 +60,7 @@ export const Dashboard = () => {
   const compareByDate = (a, b) => {
     return new Date(b.date) - new Date(a.date); //dec order
   };
-  const dateSortedDATA =(data)=> data.slice().sort(compareByDate);
+  const dateSortedDATA =(data)=> data?.slice()?.sort(compareByDate);
 
 
   //store data to localStorage

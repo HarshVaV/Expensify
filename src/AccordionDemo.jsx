@@ -17,15 +17,22 @@ export default function AccordionDemo({transData,index,deleteData,editData}) {
 
   return (
     <div className='mb-2'>
-      <Accordion sx={{
+      <Accordion 
+        sx={{
           backgroundColor: `rgb(36,35,41)`, 
           border:`${bgColor}`,
           borderRadius: '2rem 2rem 2rem 2rem !important',
           // boxShadow: ' 1px 1px 2px 1px rgba(0,0,0,0.2)',
           boxShadow: ' 0 25px 30px -12px rgb(0 0 0 / 0.25)',
+          '&:hover': {
+            backgroundColor: 'rgba(36,35,41,0.7)',
+            border:'1px solid gray'
+            ,
+          },
         }}
       >
         <AccordionSummary
+          
           expandIcon={
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 stroke-slate-400">
               <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />

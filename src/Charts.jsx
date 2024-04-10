@@ -19,7 +19,7 @@ export const Charts = ({transactions}) => {
     let cntChart=Math.min(1,creditTrans.length)+Math.min(1,debitTrans.length);
 
   return (
-    <div className={`grid grid-cols-${cntChart} gap-2 mb-5  max-w-[650px] mx-auto` }>
+    <div className={`grid grid-cols-${cntChart} gap-2 mb-20  max-w-[650px] mx-auto` }>
 
        {debitTrans.length>0?
             <UnitChart transactions={transactions} type={'debit'}/>
@@ -90,7 +90,7 @@ const UnitChart=({transactions,type})=>{
 
     //bgColor:bg-[rgb(36,35,41)]
     <div className='mx-auto   relative bg-[rgb(36,35,41)]  h-fit border-[1px] rounded-2xl p-2'>
-            <div className='rounded-[100%] h-fit w-fit  shadow-gray-700 shadow-2xl relative m-5' >
+            <div className='rounded-full h-fit w-fit  shadow-gray-700 shadow-2xl relative m-5  border-[1px]  ring ring-white ring-inset ' >
                 <PieChart
                     series={[
                         { 
@@ -105,9 +105,12 @@ const UnitChart=({transactions,type})=>{
                         }
                     ]}
                     margin={{ top: 100, bottom: 100, left: 100, right:100 }}
+                    
+                    
                     slotProps={{ 
                         legend: {hidden: true} //hide lengends
                     }}
+
                 
                     {...pieParams}
 
