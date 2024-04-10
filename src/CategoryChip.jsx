@@ -4,11 +4,11 @@ const CategoryChip = ({type}) => {
     const colorScheme={
         'Debit': {
             'bg':'red-700',
-            'text':'red-200',
+            'text':'white',
         },
         'Credit':{
             'bg':'green-700',
-            'text':'green-200',
+            'text':'white',
         },
     }
   return (

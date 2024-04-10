@@ -49,8 +49,8 @@ const colorScheme={
         'debit':'red-700'
     },
     'textColor':{
-        'credit':'green-200',
-        'debit':'red-200'
+        'credit':'white',
+        'debit':'white'
     },
     'shadowColor':{
         'debit':'red-500',
